@@ -9,7 +9,13 @@ app.locals.moment = moment
 app.use(time.init)
 app.use(function (req, res, next) {
   let moment = req.timestamp
-  console.log(`${moment.format('YYYY-MM-DD HH:mm:ss')} | ${req.method} from ${req.originalUrl}`)
+  let startTime = Date.now()
+  res.on('finish', () => {
+    let finishTime = Date.now()
+    let duration = finishTime - startTime
+    let serverMessage = `${moment.format('YYYY-MM-DD HH:mm:ss')} | ${req.method} from ${req.originalUrl} | total time: ${duration}ms`
+    console.log(serverMessage)
+  })
   next()
 })
 

@@ -1,6 +1,17 @@
 const express = require('express')
+const time = require('express-timestamp')
+const moment = require('moment')
 const app = express()
 const port = 3000
+
+app.locals.moment = moment
+
+app.use(time.init)
+app.use(function (req, res, next) {
+  let moment = req.timestamp
+  console.log(`${moment.format('YYYY-MM-DD HH:mm:ss')} | ${req.method} from ${req.originalUrl}`)
+  next()
+})
 
 app.get('/', (req, res) => {
   res.send('列出全部 Todo')

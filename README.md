@@ -1,13 +1,14 @@
 # Middleware Timestamp Exercise
 Make a middleware to detect the status of the server receiving the request.
 
-![index-img](https://raw.githubusercontent.com/flora-28/middleware-timestamp-exercise/master/public/photos/server-log.jpg)
+![index-img](https://raw.githubusercontent.com/flora-28/middleware-timestamp-exercise/master/public/photos/time-response.jpg)
 
 ## Features
 When the server receive any request from the browser, it will automatically record the information in the server log, including:
 1. Time stamps (time-stamps) - display in local time (Taipei)
 2. HTTP method of the request
 3. URL
+4. Time response
 
 ## Getting Started
 Clone repository to your local computer
